@@ -1,0 +1,16 @@
+@startuml
+
+actor アクター
+
+cloud GCP{
+    usecase LINEbot
+    usecase TwitterAPI
+}
+
+cloud Twitter
+
+アクター --> LINEbot :Tweetしたい内容
+LINEbot --> TwitterAPI :Tweetしたい内容の受け渡し
+TwitterAPI --> Twitter :API経由でTweet
+
+@enduml
