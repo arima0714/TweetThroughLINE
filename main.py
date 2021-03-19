@@ -46,6 +46,7 @@ def main(request):
             event.reply_token,
             TextSendMessage(text=event.message.text)
         )
+        tweetThroughAPI(text=event.message.text)
     return jsonify({ 'message': 'ok'})
 
 def tweetThroughAPI(text="message"):
