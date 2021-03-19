@@ -1,6 +1,7 @@
 import os
 import base64, hashlib, hmac
 import logging
+import tweepy
 
 from flask import abort, jsonify
 
@@ -46,3 +47,16 @@ def main(request):
             TextSendMessage(text=event.message.text)
         )
     return jsonify({ 'message': 'ok'})
+
+def tweetThroughAPI(text="message"):
+    # 環境変数から各種キーを格納
+    consumer_key = os.environ.get('CONSUMER_KEY')
+    consumer_secret = os.environ.get("CONSUMER_SECRET")
+    access_token = os.environ.get("ACCESS_TOKEN")
+    access_token_secret = os.environ.get("ACCESS_TOKEN_SECRET")
+    # Twitterオブジェクトの生成
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_token, access_token_secret)
+    api = tweepy.API(auth)
+    # ツイート
+    api.update_status(text)
