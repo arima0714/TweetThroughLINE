@@ -15,3 +15,4 @@ Werkzeug==1.0.1
 # https://qiita.com/spre55/items/da2ded18ac4652abb936#python3での実装
 # より
 line-bot-sdk
+tweepy
