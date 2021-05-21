@@ -1,5 +1,13 @@
 # TweetThroughLINE
 
+## 概要
+
+作成した公式LINEに投稿したテキストをそのままTwitterのアカウントでTweetするLINEbot
+
+## 構成
+
+![](Graphics/Diagram1.png)
+
 ## 環境構築
 
 ### PlantUMLの導入
