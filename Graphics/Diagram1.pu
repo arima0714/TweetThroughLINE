@@ -2,9 +2,11 @@
 
 actor アクター
 
+cloud LINEbotAPI
+
 cloud GCP{
     rectangle CloudFunctions{
-        usecase LINEbot
+        usecase ThisProgram
     }
 }
 
@@ -13,8 +15,9 @@ cloud Twitter{
     rectangle Posts
 }
 
-アクター --> LINEbot :Tweetしたい内容
-LINEbot --> TwitterAPI :Tweetしたい内容の受け渡し
+アクター --> LINEbotAPI :Tweetしたい内容
+LINEbotAPI --> ThisProgram :Tweetしたい内容をWEBhookで渡す
+ThisProgram --> TwitterAPI :Tweetしたい内容をAPI経由で渡す
 TwitterAPI --> Posts :API経由でTweet
 
 @enduml
